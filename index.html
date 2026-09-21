@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bag Shop — магазин сумок</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__logo">
+      <svg class="header__logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 8H18L17 21H7L6 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 8V6C9 3.79086 10.7909 2 13 2C15.2091 2 17 3.79086 17 6V8" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <div>
+        <p class="header__title">BAG SHOP</p>
+        <p class="header__subtitle">Люксовые сумки и аксессуары</p>
+      </div>
+    </div>
+
+    <button class="header__cart-btn" id="cartBtn" aria-label="Открыть корзину">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="9" cy="21" r="1.5" fill="currentColor"/>
+        <circle cx="18" cy="21" r="1.5" fill="currentColor"/>
+        <path d="M2 3H4L6.5 15.5H18.5L21 6H5.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span class="header__cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main class="main">
+    <h1 class="section-title">Новинки</h1>
+
+    <section class="catalog" id="catalog" aria-label="Каталог товаров">
+      <!-- карточки товаров рендерятся сюда через JS -->
+    </section>
+  </main>
+
+  <!-- Модальное окно корзины -->
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal__overlay" data-close-cart></div>
+    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="modal__header">
+        <h2 id="cartTitle">Корзина</h2>
+        <button class="modal__close" data-close-cart aria-label="Закрыть корзину">&times;</button>
+      </div>
+
+      <ul class="cart-list" id="cartList">
+        <!-- позиции корзины рендерятся сюда через JS -->
+      </ul>
+
+      <p class="cart-empty" id="cartEmpty">Корзина пуста</p>
+
+      <div class="cart-footer">
+        <p class="cart-total">Итого: <span id="cartTotal">0</span> ₽</p>
+        <button class="btn btn--primary" id="checkoutBtn">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно оформления заказа -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__overlay" data-close-order></div>
+    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+      <div class="modal__header">
+        <h2 id="orderTitle">Оформление заказа</h2>
+        <button class="modal__close" data-close-order aria-label="Закрыть форму">&times;</button>
+      </div>
+
+      <form class="order-form" id="orderForm" novalidate>
+        <label class="order-form__field">
+          Имя
+          <input type="text" name="firstName" required>
+        </label>
+
+        <label class="order-form__field">
+          Фамилия
+          <input type="text" name="lastName" required>
+        </label>
+
+        <label class="order-form__field">
+          Адрес доставки
+          <input type="text" name="address" required>
+        </label>
+
+        <label class="order-form__field">
+          Контактный номер телефона
+          <input type="tel" name="phone" required placeholder="+7 900 000 00 00">
+        </label>
+
+        <button type="submit" class="btn btn--primary">Создать заказ</button>
+      </form>
+
+      <p class="order-success" id="orderSuccess" aria-live="polite">Заказ создан!</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__divider" aria-hidden="true"></div>
+    <p class="footer__brand">BAG SHOP</p>
+    <p class="footer__text">По всем вопросам обращайтесь в Telegram</p>
+    <a class="footer__contact" href="https://t.me/churilina_polina" target="_blank" rel="noopener noreferrer">@churilina_polina</a>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
